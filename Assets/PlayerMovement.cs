@@ -16,9 +16,12 @@ public class PlayerMovement : MonoBehaviour
     public Camera mainCamera;
 
     [Header("Camera View")]
-    public float cameraSmoothTime = 0.15f;
+    public float cameraSmoothTime = 0.22f;
     public Vector3 firstPersonOffset = new Vector3(0f, 0f, 0f);
     public Vector3 thirdPersonOffset = new Vector3(0f, 1.2f, -4f);
+    public LayerMask cameraCollisionLayers;
+    public float cameraCollisionRadius = 0.2f;
+    public float cameraCollisionOffset = 0.2f;
 
     [Header("Ground Check")]
     public Transform groundCheckPoint;
@@ -140,9 +143,31 @@ public class PlayerMovement : MonoBehaviour
     // Smoothly moves the camera toward the current target offset.
     void SmoothCameraTransition()
     {
+        Vector3 desiredLocalPosition = targetCameraOffset;
+        Vector3 pivotWorldPosition = cameraPivot.position;
+        Vector3 disiredWorldPosition = cameraPivot.TransformPoint(desiredLocalPosition);
+
+        Vector3 direction = (disiredWorldPosition - pivotWorldPosition).normalized;
+        float distance = Vector3.Distance(pivotWorldPosition, disiredWorldPosition);
+
+        Vector3 finalWorldPosition = desiredWorldPosition;
+
+        if (Physics.SphereCast(
+            pivotWorldPosition,
+            cameraCollisionRadius,
+            direction,
+            out RaycastHit hit,
+            distance,
+            cameraCollisionLayers))
+        {
+            finalWorldPosition = hit.point - direction * cameraCollisionOffset;
+        }
+
+        Vector3 finalLocalPosition = cameraPivot.InverseTransformPoint(finalWorldPosition);
+
         mainCamera.transform.localPosition = Vector3.SmoothDamp(
             mainCamera.transform.localPosition,
-            targetCameraOffset,
+            finalLocalPosition,
             ref cameraVelocity,
             cameraSmoothTime
         );
