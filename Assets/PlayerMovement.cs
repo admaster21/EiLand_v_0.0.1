@@ -145,10 +145,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 desiredLocalPosition = targetCameraOffset;
         Vector3 pivotWorldPosition = cameraPivot.position;
-        Vector3 disiredWorldPosition = cameraPivot.TransformPoint(desiredLocalPosition);
+        Vector3 desiredWorldPosition = cameraPivot.TransformPoint(desiredLocalPosition);
 
-        Vector3 direction = (disiredWorldPosition - pivotWorldPosition).normalized;
-        float distance = Vector3.Distance(pivotWorldPosition, disiredWorldPosition);
+        Vector3 direction = (desiredWorldPosition - pivotWorldPosition).normalized;
+        float distance = Vector3.Distance(pivotWorldPosition, desiredWorldPosition);
 
         Vector3 finalWorldPosition = desiredWorldPosition;
 

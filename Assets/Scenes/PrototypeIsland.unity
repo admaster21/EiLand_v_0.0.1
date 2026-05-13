@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 33278210}
   - component: {fileID: 33278209}
   - component: {fileID: 33278208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree_01_Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,8 +354,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301319591}
-  m_Layer: 0
-  m_Name: Enviroment
+  m_Layer: 6
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 387703314}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 4556
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 633199993}
   - component: {fileID: 633199992}
   - component: {fileID: 633199991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree_04_Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971281807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 1198186554}
   - component: {fileID: 1198186553}
   - component: {fileID: 1198186552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree_02_Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213fd86d695a72346980190a375d5ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  baseSpeed: 5
+  walkSpeed: 5
   sprintMultiplier: 1.5
   crouchMultiplier: 0.5
   jumpForce: 5
@@ -1434,6 +1434,11 @@ MonoBehaviour:
   cameraSmoothTime: 0.15
   firstPersonOffset: {x: 0, y: 0, z: 0}
   thirdPersonOffset: {x: 0.6, y: 0.75, z: -4}
+  cameraCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 72
+  cameraCollisionRadius: 0.2
+  cameraCollisionOffset: 0.2
   groundCheckPoint: {fileID: 877447419}
   groundLayers:
     serializedVersion: 2
@@ -1687,7 +1692,7 @@ GameObject:
   - component: {fileID: 1941498425}
   - component: {fileID: 1941498424}
   - component: {fileID: 1941498423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree_03_Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
