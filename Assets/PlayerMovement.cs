@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float baseSpeed = 5f;
+    public float walkSpeed = 5f;
     public float sprintMultiplier = 1.5f;
     public float crouchMultiplier = 0.5f;
     public float jumpForce = 5f;
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 cameraVelocity = Vector3.zero;
     private Vector3 targetCameraOffset;
 
+    // Runs once at the start to set up references and initialize camera state.
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateCameraView();
     }
 
+    // Handles frame-based input, camera updates, and grounded checks.
     void Update()
     {
         CheckGround();
@@ -58,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
         SmoothCameraTransition();
     }
 
+    // Handles physics-based movement at a fixed time step.
     void FixedUpdate()
     {
         touchingWall = false;
         HandleMovement();
     }
 
+    // Rotates the player horizontally and the camera vertically based on mouse movement.
     void HandleMouseLook()
     {
         yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -74,9 +78,10 @@ public class PlayerMovement : MonoBehaviour
         cameraPivot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 
+    // Moves the player using Rigidbody velocity and reduces control while airborne.
     void HandleMovement()
     {
-        float currentSpeed = baseSpeed;
+        float currentSpeed = walkSpeed;
 
         if (Input.GetKey(KeyCode.LeftShift))
             currentSpeed *= sprintMultiplier;
@@ -106,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
     }
 
+    // Makes the player jump only when grounded.
     void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -115,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Switches between first-person and third-person camera views.
     void HandleCameraToggle()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -124,11 +131,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Updates the target camera offset based on the active camera mode.
     void UpdateCameraView()
     {
         targetCameraOffset = isFirstPerson ? firstPersonOffset : thirdPersonOffset;
     }
 
+    // Smoothly moves the camera toward the current target offset.
     void SmoothCameraTransition()
     {
         mainCamera.transform.localPosition = Vector3.SmoothDamp(
@@ -139,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
+    // Checks whether the player is standing on valid ground using a raycast.
     void CheckGround()
     {
         isGrounded = Physics.Raycast(
@@ -149,6 +159,8 @@ public class PlayerMovement : MonoBehaviour
         );
     }
 
+    // Detects wall contact while airborne so movement can
+    // slide along the wall instead of climbing it.
     void OnCollisionStay(Collision collision)
     {
         foreach (ContactPoint contact in collision.contacts)
@@ -162,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Clears wall contact when the player stops touching the wall.
     void OnCollisionExit(Collision collision)
     {
         touchingWall = false;
