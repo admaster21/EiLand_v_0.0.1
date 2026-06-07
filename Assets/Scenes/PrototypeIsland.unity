@@ -1708,6 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   mainCamera: {fileID: 330585545}
   interactionRange: 3
+  playerInventory: {fileID: 1652721881}
 --- !u!114 &1652721881
 MonoBehaviour:
   m_ObjectHideFlags: 0

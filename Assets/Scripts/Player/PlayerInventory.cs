@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
             inventory[itemName] = quantity; // Add new item to inventory
         }
 
-        Debug.Log(itemName + " added to inventory. Total quantity: " + inventory[itemName]);
+        Debug.Log(itemName + " added to inventory. +1");
     }
 
     // Method to get the quantity of a specific item in the inventory
@@ -32,5 +32,27 @@ public class PlayerInventory : MonoBehaviour
             Debug.LogWarning("Item not found in inventory: " + itemName);
             return 0; // Return 0 if item is not found
         }
+    }
+
+    public void PrintInventory()
+    {
+        Debug.Log(GetInventoryDisplay());
+    }
+
+    private string GetInventoryDisplay()
+    {
+        if(inventory.Count == 0)
+        {
+            return "Inventory is Empty!";
+        }
+
+        string inventoryDisplay = "Inventory:\n";
+
+        foreach (KeyValuePair<string, int> item in inventory)
+        {
+            inventoryDisplay += "- " + item.Key + ": " + item.Value + "\n";
+        }
+
+        return inventoryDisplay;
     }
 }

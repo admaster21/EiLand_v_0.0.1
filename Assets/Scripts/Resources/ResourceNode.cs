@@ -14,14 +14,12 @@ public class ResourceNode : Interactable
 
     public override void Interact()
     {
-        PlayerInventory playerInventory = FindObjectOfType<PlayerInventory>(); // find the player's inventory
+        PlayerInventory playerInventory = FindFirstObjectByType<PlayerInventory>(); // find the player's inventory
 
         if(playerInventory != null)
         {
             playerInventory.addItem(resourceName, amount); // add the harvested resource to the player's inventory
         }
-
-        Debug.Log("Collected " + amount + " " + resourceName); // log the collected resource
 
         if(destroyOnHarvest)
         {
