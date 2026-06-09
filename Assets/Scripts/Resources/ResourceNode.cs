@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 // extends Interactable, which means it can be interacted with by the player
 public class ResourceNode : Interactable
 {
+    
     // name of the resource
     public string resourceName = "Stone";
 
@@ -10,7 +12,12 @@ public class ResourceNode : Interactable
     public int amount = 1;
 
     // whether the resource node should be destroyed after harvesting
-    public bool destroyOnHarvest = true; 
+    public bool destroyOnHarvest = true;
+    
+    // variables to set a boolean to respawn and a timer.
+    public bool canRespawn = true;
+    public float respawnTime = 10f;
+
 
     public override void Interact()
     {
@@ -23,7 +30,40 @@ public class ResourceNode : Interactable
 
         if(destroyOnHarvest)
         {
-            Destroy(gameObject); // destroy the resource node if destroyOnHarvest is true
+            if(canRespawn)
+            {
+                StartCoroutine(RespawnRoutine());
+            }
+            else
+            {
+                Destroy(gameObject); // destroy the resource node if destroyOnHarvest is true
+            }
+        }
+
+    }
+
+    IEnumerator RespawnRoutine()
+    {
+        SetNodeActive(false);
+
+        yield return new WaitForSeconds(respawnTime);
+
+        SetNodeActive(true);
+    }
+
+    void SetNodeActive(bool isActive)
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = isActive;
+        }
+
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = isActive;
         }
     }
 }
