@@ -5,8 +5,9 @@ using System.Collections;
 public class ResourceNode : Interactable
 {
     
-    // name of the resource
+    // name of the resources
     public string resourceName = "Stone";
+    
 
     // amount of resouce that was harvested
     public int amount = 1;
@@ -44,11 +45,11 @@ public class ResourceNode : Interactable
 
     IEnumerator RespawnRoutine()
     {
-        SetNodeActive(false);
+        SetNodeActive(false); // turns Node off
 
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(respawnTime); //sets timer for respwan
 
-        SetNodeActive(true);
+        SetNodeActive(true); // turns Node back on
     }
 
     void SetNodeActive(bool isActive)

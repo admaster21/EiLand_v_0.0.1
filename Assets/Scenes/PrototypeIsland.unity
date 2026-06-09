@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 33278210}
   - component: {fileID: 33278209}
   - component: {fileID: 33278208}
+  - component: {fileID: 33278212}
   m_Layer: 6
   m_Name: Tree_01_Trunk
   m_TagString: Untagged
@@ -234,6 +235,23 @@ Transform:
   - {fileID: 1903715373}
   m_Father: {fileID: 971281807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33278212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33278207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  resourceName: Wood
+  amount: 1
+  destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &223641447
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +570,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 66
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -840,6 +858,8 @@ MonoBehaviour:
   resourceName: Stone
   amount: 1
   destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!23 &424742233
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -909,6 +929,7 @@ GameObject:
   - component: {fileID: 633199993}
   - component: {fileID: 633199992}
   - component: {fileID: 633199991}
+  - component: {fileID: 633199995}
   m_Layer: 6
   m_Name: Tree_04_Trunk
   m_TagString: Untagged
@@ -1012,6 +1033,23 @@ Transform:
   - {fileID: 223641448}
   m_Father: {fileID: 971281807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633199995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633199990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  resourceName: Wood
+  amount: 1
+  destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &745371152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1322,7 @@ GameObject:
   - component: {fileID: 1198186554}
   - component: {fileID: 1198186553}
   - component: {fileID: 1198186552}
+  - component: {fileID: 1198186556}
   m_Layer: 6
   m_Name: Tree_02_Trunk
   m_TagString: Untagged
@@ -1387,6 +1426,23 @@ Transform:
   - {fileID: 2138879159}
   m_Father: {fileID: 971281807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1198186556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198186551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  resourceName: Wood
+  amount: 1
+  destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &1621216560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1702,7 @@ Transform:
   m_Children:
   - {fileID: 745371153}
   - {fileID: 877447419}
+  - {fileID: 2084479359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1652721878
@@ -1707,6 +1764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   mainCamera: {fileID: 330585545}
+  interactionPoint: {fileID: 2084479359}
   interactionRange: 3
   playerInventory: {fileID: 1652721881}
 --- !u!114 &1652721881
@@ -1940,6 +1998,8 @@ MonoBehaviour:
   resourceName: Stone
   amount: 1
   destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &1903715372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2124,7 @@ GameObject:
   - component: {fileID: 1941498425}
   - component: {fileID: 1941498424}
   - component: {fileID: 1941498423}
+  - component: {fileID: 1941498427}
   m_Layer: 6
   m_Name: Tree_03_Trunk
   m_TagString: Untagged
@@ -2167,6 +2228,23 @@ Transform:
   - {fileID: 1820073005}
   m_Father: {fileID: 971281807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941498427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941498422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  resourceName: Wood
+  amount: 1
+  destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &1951632416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,6 +2295,8 @@ MonoBehaviour:
   resourceName: Stone
   amount: 1
   destroyOnHarvest: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!23 &1951632419
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2500,6 +2580,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 289301614986012343, guid: e03ff839bbd6b1a4898d3bb944367a65, type: 3}
+--- !u!1 &2084479358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084479359}
+  m_Layer: 0
+  m_Name: InteractionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2084479359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084479358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1652721877}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138879158
 GameObject:
   m_ObjectHideFlags: 0
