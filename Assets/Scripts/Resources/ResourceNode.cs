@@ -6,7 +6,7 @@ public class ResourceNode : Interactable
 {
     
     // name of the resources
-    public string resourceName = "Stone";
+    public string resourceName = "";
     
 
     // amount of resouce that was harvested
