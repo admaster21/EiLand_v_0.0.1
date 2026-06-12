@@ -4,10 +4,12 @@ using System.Collections;
 // extends Interactable, which means it can be interacted with by the player
 public class ResourceNode : Interactable
 {
-    
+    // the maxium health for destoryable resourses
+    public double MAX_Health = 150;
+    // the current health of object
+    private double currentHealth;
     // name of the resources
     public string resourceName = "";
-    
 
     // amount of resouce that was harvested
     public int amount = 1;
@@ -19,7 +21,10 @@ public class ResourceNode : Interactable
     public bool canRespawn = true;
     public float respawnTime = 10f;
 
-
+    void Start()
+    {
+        currentHealth = MAX_Health;
+    }
     public override void Interact()
     {
         PlayerInventory playerInventory = FindFirstObjectByType<PlayerInventory>(); // find the player's inventory

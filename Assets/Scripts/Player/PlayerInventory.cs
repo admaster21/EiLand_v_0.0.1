@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
             inventory[itemName] = quantity; // Add new item to inventory
         }
 
-        Debug.Log(itemName + " added to inventory. +1");
+        Debug.Log(itemName + " added to inventory. " + quantity);
     }
 
     // Method to get the quantity of a specific item in the inventory
