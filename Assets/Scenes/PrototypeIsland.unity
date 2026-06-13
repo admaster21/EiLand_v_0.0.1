@@ -3529,6 +3529,9 @@ MonoBehaviour:
   mainCamera: {fileID: 330585545}
   interactionPoint: {fileID: 2084479359}
   collectPrompt: {fileID: 1934314807}
+  baseHitDamage: 20
+  hitInterval: 0.5
+  nextHitTime: 0
   interactionRange: 3
   playerInventory: {fileID: 1652721881}
 --- !u!114 &1652721881
@@ -4024,7 +4027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press E to Collect
+  m_text: Hold E to Collect
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
