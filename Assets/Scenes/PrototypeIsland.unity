@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 135
   resourceName: Wood
   amount: 1
@@ -618,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 50
   resourceName: Fiber
   amount: 3
@@ -1497,6 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 150
   resourceName: Stone
   amount: 1
@@ -1881,6 +1884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 135
   resourceName: Wood
   amount: 1
@@ -2057,6 +2061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 50
   resourceName: Fiber
   amount: 3
@@ -2210,6 +2215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 0}
   MAX_Health: 150
   resourceName: Fiber
   amount: 3
@@ -2334,6 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 50
   resourceName: Fiber
   amount: 3
@@ -2714,6 +2721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 135
   resourceName: Wood
   amount: 1
@@ -3852,6 +3860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 150
   resourceName: Stone
   amount: 1
@@ -4235,6 +4244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 135
   resourceName: Wood
   amount: 1
@@ -4289,6 +4299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 50
   resourceName: Fiber
   amount: 3
@@ -4364,6 +4375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 50
   resourceName: Fiber
   amount: 3
@@ -4438,6 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668940585706c240b6bf72019754c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  floatingDamagePrefab: {fileID: 1122105956021735408, guid: 8308cff5d75743a4191d8c6ca8bdb3cd, type: 3}
   MAX_Health: 150
   resourceName: Stone
   amount: 1

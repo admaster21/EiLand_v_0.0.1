@@ -4,6 +4,7 @@ using System.Collections;
 // extends Interactable, which means it can be interacted with by the player
 public class ResourceNode : Interactable
 {
+    public GameObject floatingDamagePrefab;
     public float MAX_Health = 150;// the maxium health for destoryable resourses
     private float currentHealth;// the current health of object
     public string resourceName = "";// name of the resources (with empty string)
@@ -23,6 +24,13 @@ public class ResourceNode : Interactable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        GameObject damagePopup = Instantiate(
+        floatingDamagePrefab,
+        transform.position + Vector3.up * 2f,
+        Quaternion.identity
+        );
+
+        damagePopup.GetComponent<FloatingDamageText>().SetDamage(damage);
 
         if (currentHealth <= 0f)
         {
