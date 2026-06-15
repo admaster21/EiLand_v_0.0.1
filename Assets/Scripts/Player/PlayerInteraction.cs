@@ -34,13 +34,23 @@ public class PlayerInteraction : MonoBehaviour
         UpdateCollectPrompt();//updates crosshair promt message.
     }
 
+    bool TryGetInteractionHit(out RaycastHit hit)
+    {
+        Ray cameraRay = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (!Physics.Raycast(cameraRay, out hit, 100f))
+        {
+            return false;
+        }
+
+        float distanceFromPlayer = Vector3.Distance(interactionPoint.position,hit.point);
+
+        return distanceFromPlayer <= interactionRange;
+    }
+
     void TryInteract()
     {
-        if (!Physics.Raycast(
-            interactionPoint.position,
-            interactionPoint.forward,
-            out RaycastHit hit,
-            interactionRange))
+        if (!TryGetInteractionHit(out RaycastHit hit))
         {
             return;
         }
@@ -61,17 +71,17 @@ public class PlayerInteraction : MonoBehaviour
     //if hovering over rescource message "press E to Collect" will be prompted
     void UpdateCollectPrompt()
     {
-        if(Physics.Raycast(interactionPoint.position, interactionPoint.forward, out RaycastHit hit, interactionRange))
+        if (TryGetInteractionHit(out RaycastHit hit))
         {
-            Interactable interactable = hit.collider.GetComponentInParent<Interactable>();
+            Interactable interactable =
+                hit.collider.GetComponentInParent<Interactable>();
 
-            if(interactable != null)
+            if (interactable != null)
             {
                 collectPrompt.gameObject.SetActive(true);
                 return;
             }
         }
-
         collectPrompt.gameObject.SetActive(false);
     }
 }

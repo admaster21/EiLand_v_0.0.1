@@ -19,7 +19,7 @@ public class PlayerCameraController : MonoBehaviour
     private float yaw = 0f;
     private float pitch = 0f;
 
-    private bool isFirstPerson = true;
+    private bool isFirstPerson = false;
 
     private Vector3 cameraVelocity = Vector3.zero;
     private Vector3 targetCameraOffset;
