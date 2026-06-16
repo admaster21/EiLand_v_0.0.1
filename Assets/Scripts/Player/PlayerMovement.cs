@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float crouchMultiplier = 0.5f;
     public float jumpForce = 5f;
     public float airControlMultiplier = 0.35f;
+    public Animator playerAnimator;
 
     [Header("Ground Check")]
     public Transform groundCheckPoint;
@@ -61,6 +62,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) moveX = 1f;
 
         Vector3 moveDirection = new Vector3(moveX, 0f, moveZ).normalized;
+
+        float animationSpeed = moveDirection.magnitude;
+
+        if (Input.GetKey(KeyCode.LeftShift) && animationSpeed > 0f)
+        {
+            animationSpeed = 1.5f;
+        }
+        playerAnimator.SetFloat("MoveSpeed", animationSpeed);
         Vector3 velocity = transform.TransformDirection(moveDirection) * currentSpeed;
 
         if (!isGrounded)
@@ -80,6 +89,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetTrigger("Jump");
+            }
+
             isGrounded = false;
         }
     }

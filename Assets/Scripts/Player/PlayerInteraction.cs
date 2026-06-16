@@ -36,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
     bool TryGetInteractionHit(out RaycastHit hit)
     {
+
         Ray cameraRay = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         if (!Physics.Raycast(cameraRay, out hit, 100f))
@@ -50,6 +51,13 @@ public class PlayerInteraction : MonoBehaviour
 
     void TryInteract()
     {
+        Animator playerAnimator = GetComponentInChildren<Animator>();
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("Harvest");
+        }
+
         if (!TryGetInteractionHit(out RaycastHit hit))
         {
             return;
