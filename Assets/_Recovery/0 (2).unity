@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &387703314
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,7 +2044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &971281807
 Transform:
   m_ObjectHideFlags: 0
@@ -2214,7 +2214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1305841942
 Transform:
   m_ObjectHideFlags: 0
@@ -2447,13 +2447,13 @@ MonoBehaviour:
   treePrefab: {fileID: 8120806213868641395, guid: 1b56bcee1bc47f849adeb3ef5964a42e, type: 3}
   rockPrefab: {fileID: 5433826825964075848, guid: 069d599c16028d84fbaa296f58b10313, type: 3}
   fiberPrefab: {fileID: 161802348953914588, guid: c277d51b16ab5d742907061a8d1218d1, type: 3}
-  treeAmount: 91
-  rockAmount: 44
-  fiberAmount: 79
+  treeAmount: 41
+  rockAmount: 35
+  fiberAmount: 19
   spawnAreaSize: {x: 90, y: 90}
-  treeGroundOffset: 0
-  rockGroundOffset: -0.5
-  fiberGroundOffset: -0.5
+  treeSpawnHeight: 2
+  rockSpawnHeight: 0
+  fiberSpawnHeight: 0
   treeScaleRange: {x: 0.8, y: 1.3}
   rockScaleRange: {x: 0.3, y: 1}
   fiberScaleRange: {x: 0.5, y: 1}
