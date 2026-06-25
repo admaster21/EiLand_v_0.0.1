@@ -6,9 +6,9 @@ public class ResourceSpawner : MonoBehaviour
     public GameObject rockPrefab;
     public GameObject fiberPrefab;
 
-    public int treeAmount = 30;
-    public int rockAmount = 15;
-    public int fiberAmount = 20;
+    public int treeAmount = 0;
+    public int rockAmount = 0;
+    public int fiberAmount = 0;
 
     public Vector2 spawnAreaSize = new Vector2(60f, 60f);
     public float treeGroundOffset = 0f;
@@ -16,12 +16,16 @@ public class ResourceSpawner : MonoBehaviour
     public float fiberGroundOffset = 0f;
     public Vector2 treeScaleRange = new Vector2(0.8f, 1.3f);
     public Vector2 rockScaleRange = new Vector2(0.8f, 1.4f);
+    public Vector2 rockWidthRange = new Vector2(0.7f, 1.4f);
+    public Vector2 rockHeightRange = new Vector2(0.5f, 1.1f);
+    public Vector2 rockDepthRange = new Vector2(0.7f, 1.4f);
     public Vector2 fiberScaleRange = new Vector2(0.8f, 1.2f);
 
     void Start()
     {
         SpawnResource(treePrefab, treeAmount, treeScaleRange, treeGroundOffset);
-        SpawnResource(rockPrefab, rockAmount, rockScaleRange, rockGroundOffset);
+        SpawnShapedResource(rockPrefab, rockAmount,rockWidthRange,rockHeightRange,
+            rockDepthRange, rockGroundOffset);
         SpawnResource(fiberPrefab, fiberAmount, fiberScaleRange, fiberGroundOffset);
     }
 
@@ -68,5 +72,34 @@ public class ResourceSpawner : MonoBehaviour
 
         float heightOffset = groundOffset - bounds.min.y;
         spawnedResource.transform.position += Vector3.up * heightOffset;
+    }
+
+    void SpawnShapedResource(GameObject prefab, int amount, Vector2 widthRange,
+        Vector2 heightRange, Vector2 depthRange, float groundOffset)
+    {
+        if(prefab == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            Vector3 randomPosition = new Vector3(Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2),
+                0f, Random.Range(-spawnAreaSize.x / 2f, spawnAreaSize.x / 2));
+
+            Quaternion randomRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+
+            GameObject spawnedResoure = Instantiate(prefab, randomPosition, randomRotation);
+
+            Vector3 randomShape = new Vector3(
+            Random.Range(widthRange.x, widthRange.y),
+            Random.Range(heightRange.x, heightRange.y),
+            Random.Range(depthRange.x, depthRange.y)
+            );
+
+            spawnedResoure.transform.localScale = Vector3.Scale(spawnedResoure.transform.localScale, randomShape);
+
+            MoveBottomToGround(spawnedResoure, groundOffset);
+        }
     }
 }

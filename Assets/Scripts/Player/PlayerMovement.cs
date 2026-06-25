@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Handles physics-based movement at a fixed time step.
     void FixedUpdate()
     {
-        touchingWall = false;
+        //touchingWall = false;
         HandleMovement();
     }
 
@@ -75,9 +75,17 @@ public class PlayerMovement : MonoBehaviour
         if (!isGrounded)
         {
             velocity *= airControlMultiplier;
+        }
 
-            if (touchingWall)
-                velocity = Vector3.ProjectOnPlane(velocity, wallNormal);
+        if (touchingWall)
+        {
+            Vector3 horizontalWallNormal =
+                new Vector3(wallNormal.x, 0f, wallNormal.z).normalized;
+
+            velocity = Vector3.ProjectOnPlane(
+                velocity,
+                horizontalWallNormal
+            );
         }
 
         rb.linearVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
@@ -118,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            if (contact.normal.y < 0.2f)
+            if (contact.normal.y < 0.7f)
             {
                 touchingWall = true;
                 wallNormal = contact.normal;
