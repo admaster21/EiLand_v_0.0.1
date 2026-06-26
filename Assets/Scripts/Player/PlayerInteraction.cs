@@ -26,11 +26,6 @@ public class PlayerInteraction : MonoBehaviour
             TryInteract();
             nextHitTime = Time.time + hitInterval;
         }
-
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            playerInventory.PrintInventory();
-        }
         UpdateCollectPrompt();//updates crosshair promt message.
     }
 
