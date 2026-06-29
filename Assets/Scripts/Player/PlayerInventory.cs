@@ -1,58 +1,57 @@
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Inventory dictionary to store item names and their quantities
-    private Dictionary<string, int> inventory = new Dictionary<string, int>();
+
+    public ItemStack[] slots = new ItemStack[24];
+    public InventoryDisplay inventoryDisplay;
 
     public void addItem(string itemName, int quantity)
     {
-        if (inventory.ContainsKey(itemName))
+        //searches the inventory for a pre-exsiting Item in the inventory
+        //if found, it adds to the pre-exsisting stack
+        for (int i = 0; i < slots.Length; i++)
         {
-            inventory[itemName] += quantity; // Increase quantity if item already exists
+            if (slots[i] != null && slots[i].itemName == itemName)
+            {
+                slots[i].amount += quantity;
+                Debug.Log(itemName + " +" + quantity + " added to Inventory");
+                inventoryDisplay.RefreshInventoryUI();
+                return;
+            }
         }
-        else
+        //searches for the item in the inventory
+        //adds item to first avaiable slot
+        for (int i = 0; i < slots.Length; i++)
         {
-            inventory[itemName] = quantity; // Add new item to inventory
+            if (slots[i]  == null || string.IsNullOrEmpty(slots[i].itemName))
+            {
+                slots[i] = new ItemStack();
+                slots[i].itemName = itemName;
+                slots[i].amount = quantity;
+                Debug.Log(itemName + " +" + quantity + " added to Inventory");
+                inventoryDisplay.RefreshInventoryUI();
+                return;
+            }
         }
-
-        Debug.Log(itemName + " added to inventory. " + quantity);
+        //print for debug console that inventory is full
+        Debug.Log("Inventory is Full!");
     }
 
     // Method to get the quantity of a specific item in the inventory
     public int GetItemQuantity(string itemName)
     {
-        if (inventory.ContainsKey(itemName))
+        for (int i = 0; i < slots.Length; i++)
         {
-            return inventory[itemName]; // Return quantity of the specified item
+            if (slots[i] != null && slots[i].itemName == itemName)
+            {
+                return slots[i].amount;
+            }
         }
-        else
-        {
-            Debug.LogWarning("Item not found in inventory: " + itemName);
-            return 0; // Return 0 if item is not found
-        }
+        //return 0 if item isnt found
+        return 0; 
     }
 
-    public void PrintInventory()
-    {
-        Debug.Log(GetInventoryDisplay());
-    }
-
-    private string GetInventoryDisplay()
-    {
-        if(inventory.Count == 0)
-        {
-            return "Inventory is Empty!";
-        }
-
-        string inventoryDisplay = "Inventory:\n";
-
-        foreach (KeyValuePair<string, int> item in inventory)
-        {
-            inventoryDisplay += "- " + item.Key + ": " + item.Value + "\n";
-        }
-
-        return inventoryDisplay;
-    }
+   
 }
