@@ -9,6 +9,8 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventoryPanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -16,7 +18,11 @@ public class InventoryUI : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            bool isOpen = !inventoryPanel.activeSelf;
+            inventoryPanel.SetActive(isOpen);
+
+            Cursor.visible = isOpen;
+            Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
         }
     }
 }

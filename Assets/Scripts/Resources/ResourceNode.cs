@@ -24,9 +24,39 @@ public class ResourceNode : Interactable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+
+        Vector3 spawnPosition = transform.position;
+
+        // Find the first visible renderer with real bounds so trees use the mesh child,
+        // not the empty root renderer.
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        Renderer objectRenderer = null;
+
+        foreach (Renderer renderer in renderers)
+        {
+            if (renderer.enabled && renderer.bounds.size.sqrMagnitude > 0f)
+            {
+                objectRenderer = renderer;
+                break;
+            }
+        }
+
+        if (objectRenderer != null)
+        {
+            spawnPosition = objectRenderer.bounds.center;
+        }
+        spawnPosition += Vector3.up * 1.5f;
+
+        //nudges the popup slightly toward the camera
+        if (Camera.main != null)
+        {
+            Vector3 towardCamera = (Camera.main.transform.position - spawnPosition).normalized;
+            spawnPosition += towardCamera * 0.75f;
+        }
+
         GameObject damagePopup = Instantiate(
         floatingDamagePrefab,
-        transform.position + Vector3.up * 2f,
+        spawnPosition,
         Quaternion.identity
         );
 

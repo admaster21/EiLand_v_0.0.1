@@ -47,12 +47,19 @@ public class PlayerCameraController : MonoBehaviour
     // Rotates the player horizontally and the camera vertically based on mouse movement.
     void HandleMouseLook()
     {
+        if(Cursor.lockState != CursorLockMode.Locked)
+        {
+            return;
+        }
+
         yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
         pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, -89f, 89f);
 
         playerBody.rotation = Quaternion.Euler(0f, yaw, 0f);
         cameraPivot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+
+       
     }
 
     // Switches between first-person and third-person camera views.
