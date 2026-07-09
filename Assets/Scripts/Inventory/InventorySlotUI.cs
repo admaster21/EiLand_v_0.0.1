@@ -8,7 +8,7 @@ public class InventorySlotUI : MonoBehaviour
 
     public void UpdateSlot(ItemStack itemStack)
     {
-        if(itemStack == null)
+        if(itemStack == null || string.IsNullOrEmpty(itemStack.itemName))
         {
             itemNameText.text = "";
             amountText.text = "";
